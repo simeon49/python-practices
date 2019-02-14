@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+from collections import Iterable, Iterator
 
 ###################################################
 # __iter__, __next__: 迭代
@@ -33,5 +34,6 @@ arr.push(200)
 arr.push(300)
 print('len(arr)=', len(arr)) # 3
 print('isinstance(arr, Iterable)=', isinstance(arr, Iterable)) # True
+print('isinstance(arr, Iterator)=', isinstance(arr, Iterator)) # True
 for i, n in enumerate(arr):
     print('  (%s)->(%s)' %(i, n))

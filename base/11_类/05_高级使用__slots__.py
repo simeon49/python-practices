@@ -17,8 +17,12 @@ class B2(object):
     def __init__(self):
         self.num = 123
 
+    def foo(self):
+        pass
+
 b2 = B2()
 b2.num = 456
+b2.foo()
 try:
     b2.abc = 'abc'
 except AttributeError as e:

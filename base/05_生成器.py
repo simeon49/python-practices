@@ -19,7 +19,7 @@ while True:
     try:
         print(next(L2))
     except StopIteration:
-        pass
+        break
 
 # 等价于下面方式
 for n in L2:

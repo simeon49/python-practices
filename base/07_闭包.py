@@ -6,7 +6,7 @@
 def createCounter():
     count = 0
     def counter():
-        nonlocal count
+        nonlocal count  # 使用闭包变量
         count += 1
         return count
     return counter
