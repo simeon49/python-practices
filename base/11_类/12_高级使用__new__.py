@@ -46,7 +46,7 @@ class FruitFactory(object):
     fruits = {'apple': Apple, 'orange': Orange}
 
     def __new__(cls, name):
-        assert(isinstance(name, str))
+        assert isinstance(name, str), 'name is not str'
         name = name.lower()
         if name in cls.fruits:
             return cls.fruits[name]()

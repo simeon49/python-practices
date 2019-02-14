@@ -30,7 +30,7 @@ power(3, 4) # 81
 # 参数(注意 这个会有问题, Python函数在定义的时候，默认参数L的值就被计算出来了，即[]，因为默认参数L也是一个变量，它指向对象[]，每次调用该函数，如果改变了L的内容，则下次调用时，默认参数的内容就变了，不再是函数定义时的[]了。)
 # 定义默认参数要牢记一点：默认参数必须指向不变对象！
 def foo4(s, l=[]):
-    assert(isinstance(l, list))
+    assert isinstance(l, list), 'l is not list'
     l.append(s)
     print(l)
     return l
@@ -42,7 +42,7 @@ foo4('B') # ['A', 'B']
 def foo4_new(s, l=None):
     if l is None:
         l = []
-    assert(isinstance(l, list))
+    assert isinstance(l, list), 'l is not list'
     l.append(s)
     print(l)
     return l
@@ -78,12 +78,15 @@ foo7('Tom', 12, city="shanghai", job="engineer")
 def fact(n):
     if n == 1:
         return 1
-    return n * fact()
+    return n * fact(n-1)
 
 fact(5) # 120
-fact(5000) # RuntimeError: maximum recursion depth exceeded in comparison
+try:
+    fact(5000)
+except RuntimeError as e:
+    print('RuntimeError:', e)
 
-# 尾递归
+# 尾递归(一些语言的解释器对尾递归做了优化, 调用栈不会增加, 可惜python没有做优化)
 def fact(n):
     return fact_iter(n, 1)
 
@@ -92,4 +95,8 @@ def fact_iter(num, product):
         return product
     return fact_iter(num - 1, num * product)
 
-fact(5000)
+
+try:
+    fact(5000)
+except RuntimeError as e:
+    print('RuntimeError:', e)
