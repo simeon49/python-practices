@@ -12,7 +12,7 @@ def log(fun):
         return fun(*args, **kw)
     return _
 
-@log        # 等价于 log(add)
+@log        # 等价于 foo = log(foo)
 def foo():
     pass
 

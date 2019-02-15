@@ -11,5 +11,6 @@ def createCounter():
         return count
     return counter
 
-countterA = createCounter()
+
+counterA = createCounter()
 print(counterA(), counterA(), counterA(), counterA(), counterA()) # 1 2 3 4 5
