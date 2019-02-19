@@ -19,7 +19,7 @@ def foo():
 foo() # call foo()
 
 # 升级版
-def log(text):
+def log1(text):
     def decorator(fun):
         @functools.wraps(fun)
         def _(*args, **kw):
@@ -29,11 +29,11 @@ def log(text):
 
     return decorator if isinstance(text, str) else decorator(text)
 
-@log('some text ....')
+@log1('some text ....')
 def foo1():
     pass
 
-@log
+@log1
 def foo2():
     pass
 
